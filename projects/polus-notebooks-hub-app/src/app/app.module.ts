@@ -9,9 +9,6 @@ import {LabShareComponent} from './labshare/labshare.component';
 import {labshare} from './theme/theme';
 import {CommonModule} from '@angular/common';
 import {Title} from '@angular/platform-browser';
-import {FormsComponent} from './forms/forms.component';
-import {FormlyModule} from '@ngx-formly/core';
-import {FormlyBootstrapModule} from '@ngx-formly/bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxJsonViewerModule} from 'ngx-json-viewer';
 import {
@@ -39,14 +36,7 @@ function initialize(http: HttpClient, config: ConfigService, auth: AuthService):
   };
 }
 @NgModule({
-  declarations: [
-    CenterHeaderComponent,
-    LabShareComponent,
-    AppComponent,
-    FormsComponent,
-    LoggingComponent,
-    AuthComponent
-  ],
+  declarations: [CenterHeaderComponent, LabShareComponent, AppComponent, LoggingComponent, AuthComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -55,9 +45,7 @@ function initialize(http: HttpClient, config: ConfigService, auth: AuthService):
     CommonModule,
     UsersRouting,
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
-    NgxJsonViewerModule,
-    FormlyBootstrapModule
+    NgxJsonViewerModule
   ],
   providers: [
     Title,

@@ -1,0 +1,224 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "polus-notebooks-hub-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/polus-notebooks-hub-app",
+      "sourceRoot": "projects/polus-notebooks-hub-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@labshare/shell-ui:browser",
+          "options": {
+            "outputPath": "dist/polus-notebooks-hub-app",
+            "index": "projects/polus-notebooks-hub-app/src/index.html",
+            "main": "projects/polus-notebooks-hub-app/src/main.ts",
+            "polyfills": "projects/polus-notebooks-hub-app/src/polyfills.ts",
+            "tsConfig": "projects/polus-notebooks-hub-app/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/polus-notebooks-hub-app/src/favicon.ico",
+              "projects/polus-notebooks-hub-app/src/assets"
+            ],
+            "styles": [
+              "projects/polus-notebooks-hub-app/src/styles.scss"
+            ],
+            "scripts": [],
+            "preserveSymlinks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/polus-notebooks-hub-app/src/environments/environment.ts",
+                  "with": "projects/polus-notebooks-hub-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@labshare/shell-ui:dev-server",
+          "options": {
+            "browserTarget": "polus-notebooks-hub-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "polus-notebooks-hub-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "polus-notebooks-hub-app:build"
+          }
+        },
+        "test": {
+          "builder": "@labshare/shell-ui:karma",
+          "options": {
+            "main": "projects/polus-notebooks-hub-app/src/test.ts",
+            "polyfills": "projects/polus-notebooks-hub-app/src/polyfills.ts",
+            "tsConfig": "projects/polus-notebooks-hub-app/tsconfig.spec.json",
+            "karmaConfig": "projects/polus-notebooks-hub-app/karma.conf.js",
+            "assets": [
+              "projects/polus-notebooks-hub-app/src/favicon.ico",
+              "projects/polus-notebooks-hub-app/src/assets"
+            ],
+            "styles": [
+              "projects/polus-notebooks-hub-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/polus-notebooks-hub-app/tsconfig.app.json",
+              "projects/polus-notebooks-hub-app/tsconfig.spec.json",
+              "projects/polus-notebooks-hub-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "polus-notebooks-hub-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "polus-notebooks-hub-app:serve:production"
+            }
+          }
+        },
+        "electron": {
+          "builder": "@labshare/shell-ui:electron",
+          "options": {
+            "browserTarget": "polus-notebooks-hub-app:build",
+            "baseHref": "./"
+          }
+        },
+        "pack-electron": {
+          "builder": "@labshare/shell-ui:pack-electron",
+          "options": {
+            "browserTarget": "polus-notebooks-hub-app:build",
+            "outputPath": "dist/polus-notebooks-hub/electron",
+            "plaform": "mac",
+            "baseHref": "./"
+          }
+        },
+        "pack-cordova": {
+          "builder": "@labshare/shell-ui:pack-cordova",
+          "options": {
+            "browserTarget": "polus-notebooks-hub-app:build",
+            "outputPath": "dist/polus-notebooks-hub/cordova",
+            "plaform": "ios",
+            "baseHref": "./",
+            "cordovaAssets": false
+          }
+        },
+        "pack-sharepoint": {
+          "builder": "@labshare/shell-ui:pack-sharepoint",
+          "options": {
+            "browserTarget": "polus-notebooks-hub-app:build",
+            "baseHref": "./",
+            "outputPath": "dist/polus-notebooks-hub/sharepoint",
+            "spVersion": "online",
+            "sharepoint": {
+              "solutionName": "polus-notebooks-hub-app",
+              "solutionGuid": "4c874b09-7940-4c1c-9203-d1b6c3f1d74d",
+              "zippedPackage": "solution/polus-notebooks-hub.sppkg",
+              "webPartGuid": "c3ad6298-a085-4269-9b94-357640cdcf69",
+              "webPartAlias": "polus-notebooks-hub-app",
+              "webPartTitle": "polus-notebooks-hub-app",
+              "webPartDescription": "polus-notebooks-hub-app description",
+              "webPartPropertiesDescription": "polus-notebooks-hub-app properties description"
+            }
+          }
+        }
+      }
+    },
+    "polus-notebooks-hub-lib": {
+      "projectType": "library",
+       "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/polus-notebooks-hub-lib",
+      "sourceRoot": "projects/polus-notebooks-hub-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/polus-notebooks-hub-lib/tsconfig.lib.json",
+            "project": "projects/polus-notebooks-hub-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/polus-notebooks-hub-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/polus-notebooks-hub-lib/src/test.ts",
+            "tsConfig": "projects/polus-notebooks-hub-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/polus-notebooks-hub-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/polus-notebooks-hub-lib/tsconfig.lib.json",
+              "projects/polus-notebooks-hub-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }    
+  },
+  "defaultProject": "polus-notebooks-hub-app",
+  "cli": {
+    "analytics": false
+  }
+}

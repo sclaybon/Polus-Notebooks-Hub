@@ -21,6 +21,7 @@ import {
 // this editor should be removed for a real project
 import {LoggingComponent} from './logging/logging.component';
 import {AuthComponent} from './auth/auth.component';
+import {ViewFiletreeComponent} from './view-filetree/view-filetree.component';
 
 const customThemes = [labshare];
 // Export Angular 8 feature module
@@ -36,7 +37,14 @@ function initialize(http: HttpClient, config: ConfigService, auth: AuthService):
   };
 }
 @NgModule({
-  declarations: [CenterHeaderComponent, LabShareComponent, AppComponent, LoggingComponent, AuthComponent],
+  declarations: [
+    CenterHeaderComponent,
+    LabShareComponent,
+    AppComponent,
+    LoggingComponent,
+    AuthComponent,
+    ViewFiletreeComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

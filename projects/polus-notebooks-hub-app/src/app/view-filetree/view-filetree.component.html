@@ -1,5 +1,17 @@
 
+<div><h1 style="margin:30px;"> Polus Notebooks Hub </h1></div>
 <div>
-    <button style="margin:30px" type="button" class="btn btn-dark" (click)="getFileTree()">Test FileTree Service</button>
-    <button style="margin:30px" class="btn btn-dark" type="button" (click)="spawnStreamlitDashboard()">Spawn Streamlit Server</button>
+    <button style="margin:30px; " type="button" class="btn btn-dark" (click)="getFileTree()">Get Dashboards</button>
+    <button style="margin:30px" type="button" class="btn btn-dark" type="button" (click)="spawnDashboard()">Generate Dashboard</button>
+    <button style="margin:30px" type="button" class="btn btn-dark" type="button" (click)="stopServer()">Stop Dashboard To Regenerate</button>
+</div>
+<div>
+     <ul class="files">
+        <li style="padding-top: 10px; border-radius: 5px; margin:30px; height:50px; color:white; background-color:#343a40; text-align: center; padding: 12px 0;"
+         *ngFor="let file of files" (click)="onFileSelect(file)"
+         [class.selected]="file === selectedFile"
+         >
+            <span>{{file}}</span>
+        <li>
+     </ul>
 </div>

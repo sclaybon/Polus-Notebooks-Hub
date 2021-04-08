@@ -10,19 +10,19 @@ export class SpawnService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public spawnServer() {
-    const header = {
-      headers: new HttpHeaders().set('Authorization', 'token fcd1990e4ecb428295209595a8fd28d0')
-    };
+  public spawnServer(file: string) {
 
-    const requestStructure = {profile: 'Streamlit Dashboard External App'};
+    const requestStructure = {
+                              "profile": "Streamlit Dashboard Variable App",
+                              "dashboard": file + ".py"
+                              }
+
 
     // return this.httpClient.get<any> ("http://192.168.99.135:32692/hub/api/users/admin/server",header);
 
     return this.httpClient.post<any>(
-      'http://192.168.99.136:31970/hub/api/users/admin/server',
-      requestStructure,
-      header
+      'http://127.0.0.1:8002/spawnDashboard',
+      requestStructure
     );
   }
 }

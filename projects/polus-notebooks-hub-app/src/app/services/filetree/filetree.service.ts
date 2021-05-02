@@ -11,6 +11,13 @@ export class fileTreeService {
   constructor(private httpClient: HttpClient) {}
 
   public getfileTree() {
-    return this.httpClient.get<any>('http://127.0.0.1:8002/files');
+
+
+    // return this.httpClient.get<any>('http://127.0.0.1:8002/files');
+
+
+    return this.httpClient.get<any>('http://192.168.99.170:31000/files');
+
+
   }
 }

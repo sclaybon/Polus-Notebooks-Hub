@@ -14,10 +14,11 @@ export class DeleteHubServerService {
 
   public deleteHubServer() {
 
+    // service call directly to Jupyterhub
     // const header = {
-    //   headers: new HttpHeaders().set('Authorization', 'token c91907c3f8d0441db3e1e054238877ce')
+    //   headers: new HttpHeaders().set('Authorization', 'token 4d4247aa16dd464cbc25140e535e7c61')
     // };
-    // return this.httpClient.delete<any>('http://192.168.99.161:30358/hub/api/users/admin/server',header);
+    // return this.httpClient.delete<any>('http://192.168.99.170:31836/hub/api/users/admin/server',header);
 
     return this.httpClient.delete<any>('http://127.0.0.1:8002/stopDashboard');
 

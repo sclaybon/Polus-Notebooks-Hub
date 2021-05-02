@@ -44,7 +44,7 @@ export class ViewFiletreeComponent implements OnInit {
 
   spawnDashboard(): void {
     this.spawnServer.spawnServer(this.selectedFile).subscribe(x => console.log(x));
-    window.open('http://192.168.99.161:30358/user/admin/', '_blank');
+    window.open('192.168.99.170:31836/user/admin/', '_blank');
     // window.open('https://google.com');
   }
  

@@ -20,7 +20,7 @@ export class DeleteHubServerService {
     // };
     // return this.httpClient.delete<any>('http://192.168.99.170:31836/hub/api/users/admin/server',header);
 
-    return this.httpClient.delete<any>('http://127.0.0.1:8002/stopDashboard');
+    return this.httpClient.delete<any>('https://polus-notebooks-hub-backend.ci.aws.labshare.org/stopDashboard');
 
   }
 }

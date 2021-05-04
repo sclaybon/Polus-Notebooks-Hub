@@ -13,10 +13,9 @@ export class fileTreeService {
   public getfileTree() {
 
 
-    // return this.httpClient.get<any>('http://127.0.0.1:8002/files');
+    return this.httpClient.get<any>('https://polus-notebooks-hub-backend.ci.aws.labshare.org/files');
 
-
-    return this.httpClient.get<any>('http://192.168.99.170:31000/files');
+    // return this.httpClient.get<any>('http://192.168.99.170:31000/files');
 
 
   }

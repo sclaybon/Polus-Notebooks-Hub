@@ -11,6 +11,12 @@ import {CommonModule} from '@angular/common';
 import {Title} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxJsonViewerModule} from 'ngx-json-viewer';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
+
 import {
   NgxCoreServicesModule,
   AuthService,
@@ -22,6 +28,7 @@ import {
 import {LoggingComponent} from './logging/logging.component';
 import {AuthComponent} from './auth/auth.component';
 import {ViewFiletreeComponent} from './view-filetree/view-filetree.component';
+
 
 const customThemes = [labshare];
 // Export Angular 8 feature module
@@ -53,7 +60,11 @@ function initialize(http: HttpClient, config: ConfigService, auth: AuthService):
     CommonModule,
     UsersRouting,
     ReactiveFormsModule,
-    NgxJsonViewerModule
+    NgxJsonViewerModule,
+    BrowserAnimationsModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     Title,

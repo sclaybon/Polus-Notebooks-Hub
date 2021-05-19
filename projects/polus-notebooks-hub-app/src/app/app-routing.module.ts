@@ -7,12 +7,16 @@ import {LabShareComponent} from './labshare/labshare.component';
 import {ConfigResolverService} from '@labshare/ngx-components/theme';
 import {generatedRoutes} from './ui-modules/module-routes';
 import {generatedMenuItems} from './ui-modules/menu-items';
+import {AuthComponent} from './auth/auth.component'
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'labshare',
+    redirectTo: 'auth',
     pathMatch: 'full'
+  },
+  { path: 'auth', 
+    component: AuthComponent 
   },
   {
     path: 'labshare',

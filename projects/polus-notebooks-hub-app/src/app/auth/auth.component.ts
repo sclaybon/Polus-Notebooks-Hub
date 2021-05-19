@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '@labshare/ngx-core-services';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -65,7 +66,7 @@ export class AuthComponent implements OnInit {
   }
 
   `;
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.onAuthorizationResult = this.authService.onAuthorizationResult();
   }
 
@@ -76,6 +77,10 @@ export class AuthComponent implements OnInit {
         this.isLoggingEnable = authorized;
         console.log('is authorized: ' + authorized);
       }
+      if (authorized == true) {
+        this.router.navigate(['labshare']);
+      }
+
     });
   }
 

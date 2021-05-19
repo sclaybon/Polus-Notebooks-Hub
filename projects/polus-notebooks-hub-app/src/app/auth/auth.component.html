@@ -1,22 +1,53 @@
 <!-- Content for the middle of the main center component -->
-<div class="main-content">
-  <h1>Authentication Example</h1>
-  <p>
-    For adding authentication at your application you will need to have an auth tenant at
-    <a href="https://a.labshare.org">LabShare Auth</a>
-    and you can use following setup:
-  </p>
-
-  <div>
-    <h3>config/default.js</h3>
-    <pre class="language-json5"><code [innerHTML]="configurationCode"></code></pre>
-    <h3>Code</h3>
-    <pre class="language-ts"><code [innerHTML]="sourceCode"></code></pre>
-    <h3>AppComponent Code</h3>
-    <pre class="language-ts"><code [innerHTML]="appComponentSourceCode"></code></pre>
-    <button type="button" (click)="authenticate()" class="btn btn-primary btn-sm">Login</button>
-    <button type="button" (click)="logout()" [disabled]="isLoggingEnable == false" class="btn btn-danger btn-sm">
-      Logout
-    </button>
+<div class="row fullScreen" >
+  <div class="col-6 darkBackground" style="position:relative">
+      <h1 style="color:white">Notebooks Hub</h1>
+      <div style="margin-top:25%">
+        <div class="row" style="color:white;">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div style="display:inline-block; width:10%;">        
+              <!-- <mat-icon aria-hidden="false">check_circle</mat-icon> -->
+            </div>
+            <div style="display:inline-block; width:90%;">
+              <h1>View</h1>
+              <h6>View The List of Shared Files for Various Data Science Projects</h6>
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row" style="color:white;">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div style="display:inline-block; width:10%;">        
+              <!-- <mat-icon aria-hidden="false">check_circle</mat-icon> -->
+            </div>
+            <div style="display:inline-block; width:90%;">
+              <h1>Create</h1>
+              <h6>Create Dashboards Based on The Selected File</h6>
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row" style="color:white;">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div style="display:inline-block; width:10%;">        
+              <!-- <mat-icon aria-hidden="false">check_circle</mat-icon> -->
+            </div>
+            <div style="display:inline-block; width:90%;">
+              <h1>Connect</h1>
+              <h6>Open Files in Connected Applications</h6>
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+      </div>
+  </div>
+  <div class="col-6 lightBackground" style="position:relative">
+    <div style="margin-top:25%">
+      <button style="width:100%; height:100px; font-size:30px" type="button" (click)="authenticate()" class="p-10 btn btn-dark m-3" >Login</button>
+      <button style="width:100%; height:100px; font-size:30px" type="button" (click)="logout()" class="btn btn-dark m-3" [disabled]="isLoggingEnable == false">Logout</button>
+    </div> 
   </div>
 </div>

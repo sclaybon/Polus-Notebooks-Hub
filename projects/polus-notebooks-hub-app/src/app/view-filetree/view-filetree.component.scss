@@ -1,4 +1,23 @@
+@import '../../variables.scss';
+
 .files li.selected {
-    background-color: #506681 !important;
+    background-color: #{$dark-bg-lighter-20} !important;
     color: white !important;
   }
+
+.example-tree-invisible {
+  display: none;
+}
+
+.transparent{
+  background-color:transparent;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 15px;
+  list-style-type: none;
+}
+

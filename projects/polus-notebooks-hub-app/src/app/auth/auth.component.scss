@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.darkBackground{
+    background-color: #{$dark-background};
+}
+
+.lightBackground{
+    background-color: #{$dark-bg-lighter-30};
+}
+
+.fullScreen{
+    height: 100vh;
+}
+
+.vertical-center {
+    margin-top: 50%;
+    margin-bottom: 50%;
+  }

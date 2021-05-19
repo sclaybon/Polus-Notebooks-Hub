@@ -1,17 +1,31 @@
 
-<div><h1 style="margin:30px;"> Polus Notebooks Hub </h1></div>
 <div>
-    <button style="margin:30px; " type="button" class="btn btn-dark" (click)="getFileTree()">Get Dashboards</button>
-    <button style="margin:30px" type="button" class="btn btn-dark" type="button" (click)="spawnDashboard()">Generate Dashboard</button>
-    <button style="margin:30px" type="button" class="btn btn-dark" type="button" (click)="stopServer()">Stop Dashboard To Regenerate</button>
+    <button type="button" class="btn btn-dark m-3" (click)="getFileTree()">Get Files</button>
+    <button type="button" class="btn btn-dark m-3" (click)="spawnDashboard()">Generate Dashboard</button>
+    <button type="button" class="btn btn-dark m-3" (click)="stopServer()">Stop Dashboard Server</button>
 </div>
-<div>
-     <ul class="files">
-        <li style="padding-top: 10px; border-radius: 5px; margin:30px; height:50px; color:white; background-color:#343a40; text-align: center; padding: 12px 0;"
-         *ngFor="let file of files" (click)="onFileSelect(file)"
-         [class.selected]="file === selectedFile"
-         >
-            <span>{{file}}</span>
+
+<mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
+    <mat-tree-node class="files" *matTreeNodeDef="let node">
+        <li (click)="onFileSelect(node.name, node.path)" [class.selected]="node.name === selectedFile" class="mat-tree-node">
+            <button class="transparent" mat-icon-button disabled></button>
+            {{node.name}}: {{node.type}}
+        </li>
+    </mat-tree-node>
+
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasNestedChild">
         <li>
-     </ul>
-</div>
+            <div class="mat-tree-node">
+                <button mat-icon-button matTreeNodeToggle>
+                    <mat-icon class="mat-icon-rtl-mirror">
+                        {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                </button>
+                {{node.name}}
+            </div>
+            <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
+                <ng-container matTreeNodeOutlet></ng-container>
+            </ul>
+        </li>
+    </mat-nested-tree-node>
+</mat-tree>

@@ -11,11 +11,12 @@ export class SpawnService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public spawnServer(file: string) {
+  public spawnServer(file: string, email: string) {
 
     const requestStructure = {
                               "profile": "Streamlit Dashboard Variable App",
-                              "dashboard": file
+                              "dashboard": file,
+                              "email": email
                               };
 
     return this.httpClient.post<any>(

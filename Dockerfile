@@ -27,7 +27,7 @@ RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
 
 RUN npm run build:lib
 RUN npm install
-RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli@9.1.15
 RUN npm i @labshare/lsc@2.16.0
 
 RUN export PATH=$PATH:./node_modules/bin
